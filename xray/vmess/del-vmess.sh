@@ -12,7 +12,7 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 clear
-NUMBER_OF_CLIENTS=$(grep -c -E "^#### " "/etc/xray/config/vmess.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^#### " "/usr/local/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;39m      delete vmess account      \E[0m"
@@ -27,7 +27,7 @@ clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;39m      delete vmess account      \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-grep -E "^#### " "/etc/xray/config/vmess.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
+grep -E "^#### " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
 echo -e ""
 echo -e "  • [NOTE] Press any key to back on menu"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -35,8 +35,8 @@ read -rp "   Input Username : " user
 if [ -z $user ]; then
 m-vmess
 else
-exp=$(grep -wE "^#### $user" "/etc/xray/config/vmess.json" | cut -d ' ' -f 3 | sort | uniq)
-sed -i "/^#### $user $exp/,/^},{/d" /etc/xray/config/vmess.json
+exp=$(grep -wE "^#### $user" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
+sed -i "/^#### $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
 systemctl daemon-reload
 systemctl restart xray
 clear

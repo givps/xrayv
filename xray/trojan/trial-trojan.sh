@@ -11,7 +11,7 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-domain=$(cat /etc/xray/domain)
+domain=$(cat /usr/local/etc/xray/domain 2>/dev/null || cat /root/domain 2>/dev/null)
 MYIP=$(wget -qO- ipv4.icanhazip.com || curl -s ifconfig.me)
 clear
 tls="$(cat ~/log-install.txt | grep -w "Trojan WS TLS" | cut -d: -f2|sed 's/ //g')"
@@ -21,9 +21,9 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 expired=1
 exp=`date -d "$expired days" +"%Y-%m-%d"`
 sed -i '/#trojanws$/a\## '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config/trojan.json
+},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 sed -i '/#trojangrpc$/a\## '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config/trojan.json
+},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
 trojanlink="trojan://${uuid}@${domain}:${tls}?path=trojan-ws&security=tls&type=ws&#${user}"
 trojanlink1="trojan://${uuid}@${domain}:${ntls}?path=trojan-ws&security=none&type=ws#${user}"
 trojanlink2="trojan://${uuid}@${domain}:${tls}?serviceName=trojan-grpc&security=tls&type=grpc#${user}"

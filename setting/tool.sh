@@ -102,7 +102,7 @@ rm -f /etc/nginx/conf.d/default.conf
 rm -f /etc/nginx/conf.d/vps.conf
 
 # Download custom configs
-wget -q -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/givps/xrayv/master/ssh/nginx.conf"
+wget -q -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/givps/xrayv/master/setting/nginx.conf"
 
 # Add systemd override (fix for early startup)
 mkdir -p /etc/systemd/system/nginx.service.d

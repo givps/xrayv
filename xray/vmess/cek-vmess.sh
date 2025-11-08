@@ -13,7 +13,7 @@ LIGHT='\033[0;37m'
 # ==========================================
 clear
 echo -n > /tmp/other.txt
-data=( `cat /etc/xray/config/vmess.json | grep '^####' | cut -d ' ' -f 2`);
+data=( `cat /usr/local/etc/xray/config.json | grep '^####' | cut -d ' ' -f 2`);
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;41;36m        vmess user login          \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"

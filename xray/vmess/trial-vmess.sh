@@ -11,7 +11,7 @@ PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
-domain=$(cat /etc/xray/domain)
+domain=$(cat /usr/local/etc/xray/domain 2>/dev/null || cat /root/domain 2>/dev/null)
 MYIP=$(wget -qO- ipv4.icanhazip.com || curl -s ifconfig.me)
 tls="$(cat ~/log-install.txt | grep -w "Vmess WS TLS" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "Vmess WS none TLS" | cut -d: -f2|sed 's/ //g')"
@@ -20,10 +20,10 @@ uuid=$(cat /proc/sys/kernel/random/uuid)
 epired=1
 exp=`date -d "$epired days" +"%Y-%m-%d"`
 sed -i '/#vmessws$/a\#### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config/vmess.json
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /usr/local/etc/xray/config.json
 exp=`date -d "$epired days" +"%Y-%m-%d"`
 sed -i '/#vmessgrpc$/a\#### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/config/vmess.json
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /usr/local/etc/xray/config.json
 wstls=`cat<<EOF
       {
       "v": "2",

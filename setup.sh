@@ -11,6 +11,12 @@ blue='\e[1;34m'
 white='\e[1;37m'
 nc='\e[0m'
 
+cd
+rm -f log-install.txt
+rm -f cf.sh
+rm -f tool.sh
+rm -f ins-xray.sh
+
 # Check if running as root
 if [ "$EUID" -ne 0 ]; then
     print_error "Script need run AS root...!"
@@ -53,7 +59,7 @@ read -rp "Choose Your Domain Installation 1/2 : " dom
 if [[ $dom -eq 1 ]]; then
     clear
     rm -f /root/cf.sh
-    wget -q -O /root/cf.sh "https://raw.githubusercontent.com/givps/xrayv/master/ssh/cf.sh"
+    wget -q -O /root/cf.sh "https://raw.githubusercontent.com/givps/xrayv/master/setting/cf.sh"
     chmod +x /root/cf.sh && bash /root/cf.sh
 
 elif [[ $dom -eq 2 ]]; then
