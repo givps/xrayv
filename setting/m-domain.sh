@@ -24,10 +24,10 @@ read -rp "Choose Your Domain Installation 1/3 : " dom
 if [[ $dom -eq 1 ]]; then
     clear
     rm -f /root/cf.sh
-    wget -q -O /root/cf.sh "https://raw.githubusercontent.com/givps/AutoScriptXray/master/ssh/cf.sh"
+    wget -q -O /root/cf.sh "https://raw.githubusercontent.com/givps/xrayv/master/setting/cf.sh"
     chmod +x /root/cf.sh && bash /root/cf.sh
     rm -f /root/crt.sh
-    wget -q -O /root/crt.sh "https://raw.githubusercontent.com/givps/AutoScriptXray/master/xray/crt.sh"
+    wget -q -O /root/crt.sh "https://raw.githubusercontent.com/givps/xrayv/master/setting/crt.sh"
     chmod +x /root/crt.sh && bash /root/crt.sh
 
 elif [[ $dom -eq 2 ]]; then
@@ -88,7 +88,7 @@ elif [[ $dom -eq 2 ]]; then
 
     # Continue installation
     rm -f /root/crt.sh
-    wget -q -O /root/crt.sh "https://raw.githubusercontent.com/givps/AutoScriptXray/master/xray/crt.sh"
+    wget -q -O /root/crt.sh "https://raw.githubusercontent.com/givps/xrayv/master/setting/crt.sh"
     chmod +x /root/crt.sh && bash /root/crt.sh
 
 else 
