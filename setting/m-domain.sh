@@ -10,9 +10,11 @@ yellow='\e[1;33m'
 blue='\e[1;34m'
 white='\e[1;37m'
 nc='\e[0m'
-
+domain=$(cat /usr/local/etc/xray/domain 2>/dev/null || cat /root/domain 2>/dev/null)
 MYIP=$(wget -qO- ipv4.icanhazip.com || curl -s ifconfig.me)
 clear
+echo -e "${red}=========================================${nc}"
+echo -e "${green} Domain : ${domain}    ${nc}"
 echo -e "${red}=========================================${nc}"
 echo -e "${green}     CUSTOM SETUP DOMAIN VPS     ${nc}"
 echo -e "${red}=========================================${nc}"
