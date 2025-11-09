@@ -36,10 +36,8 @@ done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " expired
 exp=`date -d "$expired days" +"%Y-%m-%d"`
-sed -i '/#vlessws$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
-sed -i '/#vlessgrpc$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
+sed -i '/#vlessws$/a\  ### '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
+sed -i '/#vlessgrpc$/a\  ### '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
 vlesslink1="vless://${uuid}@${domain}:$tls?path=/vless-ws&security=tls&type=ws#${user}"
 vlesslink2="vless://${uuid}@${domain}:$ntls?path=/vless-ws&security=none&type=ws#${user}"
 vlesslink3="vless://${uuid}@${domain}:$tls?serviceName=vless-grpc&security=tls&type=grpc#${user}"
