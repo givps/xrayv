@@ -149,6 +149,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
       "settings": {
         "clients": [
           { "id": "$uuid" }
+#vlessws
         ],
         "decryption": "none"
       },
@@ -165,6 +166,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
       "settings": {
         "clients": [
           { "id": "$uuid" }
+#vmessws
         ]
       },
       "streamSettings": {
@@ -180,6 +182,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
       "settings": {
         "clients": [
           { "password": "$uuid" }
+#trojanws
         ]
       },
       "streamSettings": {
@@ -195,6 +198,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
       "settings": {
         "method": "aes-128-gcm",
         "password": "$uuid"
+#ssws
       },
       "streamSettings": {
         "network": "ws",
@@ -209,6 +213,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
       "settings": {
         "clients": [
           { "id": "$uuid" }
+#vlessgrpc
         ],
         "decryption": "none"
       },
@@ -225,6 +230,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
       "settings": {
         "clients": [
           { "id": "$uuid" }
+#vmessgrpc
         ]
       },
       "streamSettings": {
@@ -240,6 +246,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
       "settings": {
         "clients": [
           { "password": "$uuid" }
+#trojangrpc
         ]
       },
       "streamSettings": {
@@ -255,6 +262,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
       "settings": {
         "method": "aes-128-gcm",
         "password": "$uuid"
+#ssgrpc
       },
       "streamSettings": {
         "network": "grpc",
