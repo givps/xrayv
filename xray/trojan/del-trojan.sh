@@ -1,6 +1,6 @@
 #!/bin/bash
 # =========================================
-# del trojan ws grpc
+# Delete Trojan WS & gRPC Account
 # =========================================
 RED='\033[0;31m'
 NC='\033[0m'
@@ -12,43 +12,50 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 clear
-NUMBER_OF_CLIENTS=$(grep -c -E "^## " "/usr/local/etc/xray/config.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^[[:space:]]*## " "/usr/local/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m      delete trojan account      \E[0m"
+echo -e "\E[44;1;39m      DELETE TROJAN ACCOUNT       \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "  • You dont have any existing client"
+echo -e "  • You don't have any existing client"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
-read -n 1 -s -r -p "   Press any key to back on menu"
+read -n 1 -s -r -p "   Press any key to return to menu"
 m-trojan
 fi
+
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m      delete trojan account      \E[0m"
+echo -e "\E[44;1;39m      DELETE TROJAN ACCOUNT       \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-grep -E "^## " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-3 | column -t | sort | uniq | nl
+grep -E "^[[:space:]]*## " "/usr/local/etc/xray/config.json" | nl -s ') '
 echo -e ""
-echo -e "  • [NOTE] Press any key to back on menu"
+echo -e "  • [NOTE] Press Enter to cancel"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 read -rp "   Input Username : " user
-if [ -z $user ]; then
+
+if [ -z "$user" ]; then
 m-trojan
 else
-exp=$(grep -wE "^## $user" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3 | sort | uniq)
-sed -i "/^## $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
+# Get expiration date from line ## user exp
+exp=$(grep -wE "##[[:space:]]+$user" "/usr/local/etc/xray/config.json" | awk '{print $3}' | head -n 1)
+[[ -z $exp ]] && { echo "User not found!"; exit 1; }
+
+# Delete from Trojan WS & gRPC
+sed -i "/^  ## $user $exp$/,/email\": \"$user ($exp)\"/d" "/usr/local/etc/xray/config.json"
+
 systemctl daemon-reload
 systemctl restart xray
 clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;39m      delete trojan account      \E[0m"
+echo -e "\E[44;1;39m      DELETE TROJAN ACCOUNT       \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "   • Accound delete successfully"
+echo -e "   • Account deleted successfully"
 echo -e ""
 echo -e "   • Client Name : $user"
 echo -e "   • Expired On  : $exp"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
-read -n 1 -s -r -p "   Press any key to back on menu"
+read -n 1 -s -r -p "   Press any key to return to menu"
 m-trojan
 fi
