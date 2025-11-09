@@ -97,31 +97,31 @@ systemctl daemon-reload
 systemctl restart xray
 service cron restart > /dev/null 2>&1
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vmess/vmess.log
-echo -e "\\E[0;41;36m        vmess account        \E[0m" | tee -a /var/log/vmess/vmess.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vmess/vmess.log
-echo -e "Remarks        : ${user}" | tee -a /var/log/vmess/vmess.log
-echo -e "Host           : ${domain}" | tee -a /var/log/vmess/vmess.log
-echo -e "IP             : ${MYIP}" | tee -a /var/log/vmess/vmess.log
-echo -e "Wildcard       : bug.com.${domain}" | tee -a /var/log/vmess/vmess.log
-echo -e "Port TLS       : ${tls}" | tee -a /var/log/vmess/vmess.log
-echo -e "Port none TLS  : ${none}" | tee -a /var/log/vmess/vmess.log
-echo -e "Port gRPC      : ${tls}" | tee -a /var/log/vmess/vmess.log
-echo -e "UUID           : ${uuid}" | tee -a /var/log/vmess/vmess.log
-echo -e "alterId        : 0" | tee -a /var/log/vmess/vmess.log
-echo -e "Security       : auto" | tee -a /var/log/vmess/vmess.log
-echo -e "Network        : ws" | tee -a /var/log/vmess/vmess.log
-echo -e "Path           : /vmess-ws" | tee -a /var/log/vmess/vmess.log
-echo -e "ServiceName    : vmess-grpc" | tee -a /var/log/vmess/vmess.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vmess/vmess.log
-echo -e "Link TLS       : ${vmesslink1}" | tee -a /var/log/vmess/vmess.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vmess/vmess.log
-echo -e "Link none TLS  : ${vmesslink2}" | tee -a /var/log/vmess/vmess.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vmess/vmess.log
-echo -e "Link gRPC      : ${vmesslink3}" | tee -a /var/log/vmess/vmess.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vmess/vmess.log
-echo -e "Expired On     : $exp" | tee -a /var/log/vmess/vmess.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vmess/vmess.log
-echo "" | tee -a /var/log/vmess/vmess.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vmess.log
+echo -e "\\E[0;41;36m        vmess account        \E[0m" | tee -a /var/log/xray/vmess.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vmess.log
+echo -e "Remarks        : ${user}" | tee -a /var/log/xray/vmess.log
+echo -e "Host           : ${domain}" | tee -a /var/log/xray/vmess.log
+echo -e "IP             : ${MYIP}" | tee -a /var/log/xray/vmess.log
+echo -e "Wildcard       : bug.com.${domain}" | tee -a /var/log/xray/vmess.log
+echo -e "Port TLS       : ${tls}" | tee -a /var/log/xray/vmess.log
+echo -e "Port none TLS  : ${none}" | tee -a /var/log/xray/vmess.log
+echo -e "Port gRPC      : ${tls}" | tee -a /var/log/xray/vmess.log
+echo -e "UUID           : ${uuid}" | tee -a /var/log/xray/vmess.log
+echo -e "alterId        : 0" | tee -a /var/log/xray/vmess.log
+echo -e "Security       : auto" | tee -a /var/log/xray/vmess.log
+echo -e "Network        : ws" | tee -a /var/log/xray/vmess.log
+echo -e "Path           : /vmess-ws" | tee -a /var/log/xray/vmess.log
+echo -e "ServiceName    : vmess-grpc" | tee -a /var/log/xray/vmess.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vmess.log
+echo -e "Link TLS       : ${vmesslink1}" | tee -a /var/log/xray/vmess.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vmess.log
+echo -e "Link none TLS  : ${vmesslink2}" | tee -a /var/log/xray/vmess.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vmess.log
+echo -e "Link gRPC      : ${vmesslink3}" | tee -a /var/log/xray/vmess.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vmess.log
+echo -e "Expired On     : $exp" | tee -a /var/log/xray/vmess.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vmess.log
+echo "" | tee -a /var/log/xray/vmess.log
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vmess

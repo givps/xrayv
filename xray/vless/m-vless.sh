@@ -28,7 +28,7 @@ case $opt in
 3) clear ; renew-vless ;;
 4) clear ; del-vless ;;
 5) clear ; cek-vless ;;
-6) clear ; cat /var/log/vless/trojan.log ; exit ;;
+6) clear ; cat /var/log/xray/vless.log ; exit ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "You pressed it wrong " ; sleep 1 ; m-vless ;;

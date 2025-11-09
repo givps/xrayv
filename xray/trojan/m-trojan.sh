@@ -28,7 +28,7 @@ case $opt in
 3) clear ; renew-trojan ;;
 4) clear ; del-trojan ;;
 5) clear ; cek-trojan ;;
-6) clear ; cat /var/log/trojan/trojan.log ; exit ;;
+6) clear ; cat /var/log/xray/trojan.log ; exit ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "You pressed it wrong" ; sleep 1 ; m-trojan ;;

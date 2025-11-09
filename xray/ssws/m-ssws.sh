@@ -28,7 +28,7 @@ case $opt in
 3) clear ; renew-ssws ;;
 4) clear ; del-ssws ;;
 5) clear ; cek-ssws ;;
-6) clear ; cat /var/log/ssws/trojan.log ; exit ;;
+6) clear ; cat /var/log/xray/ssws.log ; exit ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "You pressed it wrong" ; sleep 1 ; m-ssws ;;

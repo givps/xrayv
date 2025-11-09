@@ -28,7 +28,7 @@ case $opt in
 3) clear ; renew-vmess ;;
 4) clear ; del-vmess ;;
 5) clear ; cek-vmess ;;
-6) clear ; cat /var/log/vmess/trojan.log ; exit ;;
+6) clear ; cat /var/log/xray/vmess.log ; exit ;;
 0) clear ; menu ;;
 x) exit ;;
 *) echo "You pressed it wrong " ; sleep 1 ; m-vmess ;;

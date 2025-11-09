@@ -47,29 +47,29 @@ trojanlink2="trojan://${uuid}@${domain}:${tls}?serviceName=trojan-grpc&security=
 systemctl daemon-reload
 systemctl restart xray
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/trojan/trojan.log
-echo -e "\E[0;41;36m           trojan account           \E[0m" | tee -a /var/log/trojan/trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/trojan/trojan.log
-echo -e "Remarks        : ${user}" | tee -a /var/log/trojan/trojan.log
-echo -e "Host           : ${domain}" | tee -a /var/log/trojan/trojan.log
-echo -e "IP             : ${MYIP}" | tee -a /var/log/trojan/trojan.log
-echo -e "Wildcard       : bug.com.${domain}" | tee -a /var/log/trojan/trojan.log
-echo -e "Port TLS       : ${tls}" | tee -a /var/log/trojan/trojan.log
-echo -e "Port none TLS  : ${ntls}" | tee -a /var/log/trojan/trojan.log
-echo -e "Port gRPC      : ${tls}" | tee -a /var/log/trojan/trojan.log
-echo -e "UUID            : ${uuid}" | tee -a /var/log/trojan/trojan.log
-echo -e "Network        : ws" | tee -a /var/log/trojan/trojan.log
-echo -e "Path           : /trojan-ws" | tee -a /var/log/trojan/trojan.log
-echo -e "ServiceName    : trojan-grpc" | tee -a /var/log/trojan/trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/trojan/trojan.log
-echo -e "Link TLS       : ${trojanlink}" | tee -a /var/log/trojan/trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/trojan/trojan.log
-echo -e "Link none TLS  : ${trojanlink1}" | tee -a /var/log/trojan/trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/trojan/trojan.log
-echo -e "Link gRPC      : ${trojanlink2}" | tee -a /var/log/trojan/trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/trojan/trojan.log
-echo -e "Expired On     : $exp" | tee -a /var/log/trojan/trojan.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/trojan/trojan.log
-echo "" | tee -a /var/log/trojan/trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/trojan.log
+echo -e "\E[0;41;36m           trojan account           \E[0m" | tee -a /var/log/xray/trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/trojan.log
+echo -e "Remarks        : ${user}" | tee -a /var/log/xray/trojan.log
+echo -e "Host           : ${domain}" | tee -a /var/log/xray/trojan.log
+echo -e "IP             : ${MYIP}" | tee -a /var/log/xray/trojan.log
+echo -e "Wildcard       : bug.com.${domain}" | tee -a /var/log/xray/trojan.log
+echo -e "Port TLS       : ${tls}" | tee -a /var/log/xray/trojan.log
+echo -e "Port none TLS  : ${ntls}" | tee -a /var/log/xray/trojan.log
+echo -e "Port gRPC      : ${tls}" | tee -a /var/log/xray/trojan.log
+echo -e "UUID            : ${uuid}" | tee -a /var/log/xray/trojan.log
+echo -e "Network        : ws" | tee -a /var/log/xray/trojan.log
+echo -e "Path           : /trojan-ws" | tee -a /var/log/xray/trojan.log
+echo -e "ServiceName    : trojan-grpc" | tee -a /var/log/xray/trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/trojan.log
+echo -e "Link TLS       : ${trojanlink}" | tee -a /var/log/xray/trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/trojan.log
+echo -e "Link none TLS  : ${trojanlink1}" | tee -a /var/log/xray/trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/trojan.log
+echo -e "Link gRPC      : ${trojanlink2}" | tee -a /var/log/xray/trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/trojan.log
+echo -e "Expired On     : $exp" | tee -a /var/log/xray/trojan.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/trojan.log
+echo "" | tee -a /var/log/xray/trojan.log
 read -n 1 -s -r -p "Press any key to back on menu"
 m-trojan

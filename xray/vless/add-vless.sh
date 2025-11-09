@@ -46,29 +46,29 @@ vlesslink3="vless://${uuid}@${domain}:$tls?serviceName=vless-grpc&security=tls&t
 systemctl daemon-reload
 systemctl restart xray
 clear
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vless/vless.log
-echo -e "\E[44;1;39m         vless account             \E[0m" | tee -a /var/log/vless/vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vless/vless.log
-echo -e "Remarks        : ${user}" | tee -a /var/log/vless/vless.log
-echo -e "Host           : ${domain}" | tee -a /var/log/vless/vless.log
-echo -e "IP             : ${MYIP}" | tee -a /var/log/vless/vless.log
-echo -e "Wildcard       : bug.com.${domain}" | tee -a /var/log/vless/vless.log
-echo -e "Port TLS       : $tls" | tee -a /var/log/vless/vless.log
-echo -e "Port none TLS  : $ntls" | tee -a /var/log/vless/vless.log
-echo -e "Port gRPC      : $tls" | tee -a /var/log/vless/vless.log
-echo -e "UUID           : ${uuid}" | tee -a /var/log/vless/vless.log
-echo -e "Network        : ws" | tee -a /var/log/vless/vless.log
-echo -e "Path           : /vless-ws" | tee -a /var/log/vless/vless.log
-echo -e "ServiceName    : vless-grpc" | tee -a /var/log/vless/vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vless/vless.log
-echo -e "Link TLS       : ${vlesslink1}" | tee -a /var/log/vless/vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vless/vless.log
-echo -e "Link none TLS  : ${vlesslink2}" | tee -a /var/log/vless/vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vless/vless.log
-echo -e "Link gRPC      : ${vlesslink3}" | tee -a /var/log/vless/vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vless/vless.log
-echo -e "Expired On     : $exp" | tee -a /var/log/vless/vless.log
-echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/vless/vless.log
-echo "" | tee -a /var/log/vless/vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vless.log
+echo -e "\E[44;1;39m         vless account             \E[0m" | tee -a /var/log/xray/vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vless.log
+echo -e "Remarks        : ${user}" | tee -a /var/log/xray/vless.log
+echo -e "Host           : ${domain}" | tee -a /var/log/xray/vless.log
+echo -e "IP             : ${MYIP}" | tee -a /var/log/xray/vless.log
+echo -e "Wildcard       : bug.com.${domain}" | tee -a /var/log/xray/vless.log
+echo -e "Port TLS       : $tls" | tee -a /var/log/xray/vless.log
+echo -e "Port none TLS  : $ntls" | tee -a /var/log/xray/vless.log
+echo -e "Port gRPC      : $tls" | tee -a /var/log/xray/vless.log
+echo -e "UUID           : ${uuid}" | tee -a /var/log/xray/vless.log
+echo -e "Network        : ws" | tee -a /var/log/xray/vless.log
+echo -e "Path           : /vless-ws" | tee -a /var/log/xray/vless.log
+echo -e "ServiceName    : vless-grpc" | tee -a /var/log/xray/vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vless.log
+echo -e "Link TLS       : ${vlesslink1}" | tee -a /var/log/xray/vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vless.log
+echo -e "Link none TLS  : ${vlesslink2}" | tee -a /var/log/xray/vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vless.log
+echo -e "Link gRPC      : ${vlesslink3}" | tee -a /var/log/xray/vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vless.log
+echo -e "Expired On     : $exp" | tee -a /var/log/xray/vless.log
+echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m" | tee -a /var/log/xray/vless.log
+echo "" | tee -a /var/log/xray/vless.log
 read -n 1 -s -r -p "Press any key to back on menu"
 m-vless
