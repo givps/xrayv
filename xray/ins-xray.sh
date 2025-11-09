@@ -133,6 +133,15 @@ cat > /usr/local/etc/xray/config.json <<EOF
   },
   "inbounds": [
     {
+      "listen": "127.0.0.1",
+      "port": 10009,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1"
+      },
+      "tag": "api"
+    },
+    {
       "tag": "vless-ws",
       "listen": "127.0.0.1",
       "port": 10001,
@@ -254,8 +263,14 @@ cat > /usr/local/etc/xray/config.json <<EOF
     }
   ],
   "outbounds": [
-    { "protocol": "freedom", "tag": "direct" },
-    { "protocol": "blackhole", "tag": "blocked" }
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "blocked"
+    }
   ],
   "routing": {
     "domainStrategy": "AsIs",
@@ -264,8 +279,37 @@ cat > /usr/local/etc/xray/config.json <<EOF
         "type": "field",
         "ip": ["geoip:private"],
         "outboundTag": "blocked"
+      },
+      {
+        "type": "field",
+        "inboundTag": ["api"],
+        "outboundTag": "api"
+      },
+      {
+        "type": "field",
+        "protocol": ["bittorrent"],
+        "outboundTag": "blocked"
       }
     ]
+  },
+  "api": {
+    "tag": "api",
+    "services": ["StatsService"]
+  },
+  "stats": {},
+  "policy": {
+    "levels": {
+      "0": {
+        "statsUserUplink": true,
+        "statsUserDownlink": true
+      }
+    },
+    "system": {
+      "statsInboundUplink": true,
+      "statsInboundDownlink": true,
+      "statsOutboundUplink": true,
+      "statsOutboundDownlink": true
+    }
   }
 }
 EOF
