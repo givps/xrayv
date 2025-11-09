@@ -17,7 +17,7 @@ CYAN='\e[36m'; NC='\e[0m'; BGreen='\e[1;32m'; BYellow='\e[1;33m'; BBlue='\e[1;34
 # -------------------------------
 # VPS Info
 # -------------------------------
-domain=$(cat /etc/xray/domain 2>/dev/null)
+domain=$(cat /usr/local/etc/xray/domain 2>/dev/null || cat /root/domain 2>/dev/null)
 uptime="$(uptime -p | cut -d " " -f2-10)"
 DATE2=$(date -R | cut -d " " -f -5)
 country=$(cat /myinfo/country 2>/dev/null || echo "API limit...")
