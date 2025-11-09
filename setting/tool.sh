@@ -197,17 +197,17 @@ systemctl start fail2ban
 # download script
 cd /usr/bin
 # menu
-wget -O menu "https://raw.githubusercontent.com/givps/xrayv/master/xray/setting/menu.sh"
-wget -O running "https://raw.githubusercontent.com/givps/xrayv/master/xray/setting/running.sh"
-wget -O clearcache "https://raw.githubusercontent.com/givps/xrayv/master/xray/setting/clearcache.sh"
+wget -O menu "https://raw.githubusercontent.com/givps/xrayv/master/setting/menu.sh"
+wget -O running "https://raw.githubusercontent.com/givps/xrayv/master/setting/running.sh"
+wget -O clearcache "https://raw.githubusercontent.com/givps/xrayv/master/setting/clearcache.sh"
 # menu system
-wget -O m-system "https://raw.githubusercontent.com/givps/xrayv/master/xray/setting/m-system.sh"
-wget -O m-domain "https://raw.githubusercontent.com/givps/xrayv/master/xray/setting/m-domain.sh"
-wget -O crt "https://raw.githubusercontent.com/givps/xrayv/master/xray/setting/crt.sh"
-wget -O auto-reboot "https://raw.githubusercontent.com/givps/xrayv/master/xray/setting/auto-reboot.sh"
-wget -O restart "https://raw.githubusercontent.com/givps/xrayv/master/xray/setting/restart.sh"
-wget -O bw "https://raw.githubusercontent.com/givps/xrayv/master/xray/setting/bw.sh"
-wget -O m-dns "https://raw.githubusercontent.com/givps/xrayv/master/xray/setting/m-dns.sh"
+wget -O m-system "https://raw.githubusercontent.com/givps/xrayv/master/setting/m-system.sh"
+wget -O m-domain "https://raw.githubusercontent.com/givps/xrayv/master/setting/m-domain.sh"
+wget -O crt "https://raw.githubusercontent.com/givps/xrayv/master/setting/crt.sh"
+wget -O auto-reboot "https://raw.githubusercontent.com/givps/xrayv/master/setting/auto-reboot.sh"
+wget -O restart "https://raw.githubusercontent.com/givps/xrayv/master/setting/restart.sh"
+wget -O bw "https://raw.githubusercontent.com/givps/xrayv/master/setting/bw.sh"
+wget -O m-dns "https://raw.githubusercontent.com/givps/xrayv/master/setting/m-dns.sh"
 
 chmod +x menu
 chmod +x running
