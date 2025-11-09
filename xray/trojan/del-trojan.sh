@@ -12,7 +12,7 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 clear
-NUMBER_OF_CLIENTS=$(grep -c -E "^[[:space:]]*## " "/usr/local/etc/xray/config.json")
+NUMBER_OF_CLIENTS=$(grep -c -E "^[[:space:]]*#1 " "/usr/local/etc/xray/config.json")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;39m      DELETE TROJAN ACCOUNT       \E[0m"
@@ -28,7 +28,7 @@ clear
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[44;1;39m      DELETE TROJAN ACCOUNT       \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-grep -E "^[[:space:]]*## " "/usr/local/etc/xray/config.json" | nl -s ') '
+grep -E "^[[:space:]]*#1 " "/usr/local/etc/xray/config.json" | nl -s ') '
 echo -e ""
 echo -e "  • [NOTE] Press Enter to cancel"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
@@ -37,12 +37,12 @@ read -rp "   Input Username : " user
 if [ -z "$user" ]; then
 m-trojan
 else
-# Get expiration date from line ## user exp
-exp=$(grep -wE "##[[:space:]]+$user" "/usr/local/etc/xray/config.json" | awk '{print $3}' | head -n 1)
+# Get expiration date from line #1 user exp
+exp=$(grep -wE "#1[[:space:]]+$user" "/usr/local/etc/xray/config.json" | awk '{print $3}' | head -n 1)
 [[ -z $exp ]] && { echo "User not found!"; exit 1; }
 
 # Delete from Trojan WS & gRPC
-sed -i "/^  ## $user $exp$/,/email\": \"$user ($exp)\"/d" "/usr/local/etc/xray/config.json"
+sed -i "/^  #1 $user $exp$/,/email\": \"$user ($exp)\"/d" "/usr/local/etc/xray/config.json"
 
 systemctl daemon-reload
 systemctl restart xray
