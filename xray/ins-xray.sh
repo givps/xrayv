@@ -538,3 +538,40 @@ EOF
 systemctl daemon-reload
 systemctl enable nginx
 systemctl start nginx
+
+cd /usr/bin/
+wget -q -O add-vmess "https://raw.githubusercontent.com/givps/xrayv/master/xray/vmess/add-vmess.sh" && chmod +x add-vmess
+wget -q -O trial-vmess "https://raw.githubusercontent.com/givps/xrayv/master/xray/vmess/trial-vmess.sh" && chmod +x trial-vmess
+wget -q -O renew-vmess "https://raw.githubusercontent.com/givps/xrayv/master/xray/vmess/renew-vmess.sh" && chmod +x renew-vmess
+wget -q -O del-vmess "https://raw.githubusercontent.com/givps/xrayv/master/xray/vmess/del-vmess.sh" && chmod +x del-vmess
+wget -q -O cek-vmess "https://raw.githubusercontent.com/givps/xrayv/master/xray/vmess/cek-vmess.sh" && chmod +x cek-vmess
+wget -q -O m-vmess "https://raw.githubusercontent.com/givps/xrayv/master/xray/vmess/m-vmess.sh" && chmod +x m-vmess
+
+wget -O add-vless "https://raw.githubusercontent.com/givps/xrayv/master/xray/vless/add-vless.sh" && chmod +x add-vless
+wget -O trial-vless "https://raw.githubusercontent.com/givps/xrayv/master/xray/vless/trial-vless.sh" && chmod +x trial-vless
+wget -O renew-vless "https://raw.githubusercontent.com/givps/xrayv/master/xray/vless/renew-vless.sh" && chmod +x renew-vless
+wget -O del-vless "https://raw.githubusercontent.com/givps/xrayv/master/xray/vless/del-vless.sh" && chmod +x del-vless
+wget -O cek-vless "https://raw.githubusercontent.com/givps/xrayv/master/xray/vless/cek-vless.sh" && chmod +x cek-vless
+wget -O m-vless "https://raw.githubusercontent.com/givps/xrayv/master/xray/vless/m-vless.sh" && chmod +x m-vless
+
+wget -O add-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/add-ssws.sh" && chmod +x add-ssws
+wget -O trial-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/trial-ssws.sh" && chmod +x trial-ssws
+wget -O renew-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/renew-ssws.sh" && chmod +x renew-ssws
+wget -O del-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/del-ssws.sh" && chmod +x del-ssws
+wget -O cek-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/cek-ssws.sh" && chmod +x cek-ssws
+wget -O m-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/m-ssws.sh" && chmod +x m-ssws
+
+wget -O add-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/add-trojan.sh" && chmod +x add-trojan
+wget -O renew-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/renew-trojan.sh" && chmod +x renew-trojan
+wget -O trial-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/trial-trojan.sh" && chmod +x trial-trojan
+wget -O del-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/del-trojan.sh" && chmod +x del-trojan
+wget -O cek-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/cek-trojan.sh" && chmod +x cek-trojan
+wget -O m-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/m-trojan.sh" && chmod +x m-trojan
+wget -O xpxray "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/xpxray.sh" && chmod +x xpxray
+cd
+
+cat > /etc/cron.d/xpxray_otm <<EOF
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+0 0 * * * root /usr/bin/xpxray
+EOF
