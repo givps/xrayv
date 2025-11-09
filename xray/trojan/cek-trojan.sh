@@ -16,7 +16,6 @@ clear
 TMP_OTHER="/tmp/other.txt"
 TMP_IPTROJAN="/tmp/iptrojan.txt"
 LOG_XRAY="/var/log/xray/access.log"
-CONF_XRAY="/usr/local/etc/xray/config.json"
 
 > "$TMP_OTHER"
 
