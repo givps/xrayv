@@ -55,7 +55,7 @@ echo -e "Wildcard       : bug.com.${domain}" | tee -a /var/log/xray/trojan.log
 echo -e "Port TLS       : ${tls}" | tee -a /var/log/xray/trojan.log
 echo -e "Port none TLS  : ${ntls}" | tee -a /var/log/xray/trojan.log
 echo -e "Port gRPC      : ${tls}" | tee -a /var/log/xray/trojan.log
-echo -e "UUID            : ${uuid}" | tee -a /var/log/xray/trojan.log
+echo -e "UUID           : ${uuid}" | tee -a /var/log/xray/trojan.log
 echo -e "Network        : ws" | tee -a /var/log/xray/trojan.log
 echo -e "Path           : /trojan-ws" | tee -a /var/log/xray/trojan.log
 echo -e "ServiceName    : trojan-grpc" | tee -a /var/log/xray/trojan.log
