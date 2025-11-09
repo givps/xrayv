@@ -37,10 +37,8 @@ done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " expired
 exp=`date -d "$expired days" +"%Y-%m-%d"`
-sed -i '/#trojanws$/a\## '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
-sed -i '/#trojangrpc$/a\## '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
+sed -i '/#trojanws$/a\  ## '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
+sed -i '/#trojangrpc$/a\  ## '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
 trojanlink="trojan://${uuid}@${domain}:${tls}?path=trojan-ws&security=tls&type=ws&#${user}"
 trojanlink1="trojan://${uuid}@${domain}:${ntls}?path=trojan-ws&security=none&type=ws#${user}"
 trojanlink2="trojan://${uuid}@${domain}:${tls}?serviceName=trojan-grpc&security=tls&type=grpc#${user}"
