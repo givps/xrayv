@@ -3,34 +3,42 @@
 # auto delete xray user expired
 # =========================================
 #----- Auto Remove Trojan
-for u in $(grep '^##' /usr/local/etc/xray/config.json | awk '{print $2,$3}'); do
+for u in $(grep '^[[:space:]]*#1 ' /usr/local/etc/xray/config.json | awk '{print $2,$3}'); do
   user=$(echo $u | awk '{print $1}')
   exp=$(echo $u | awk '{print $2}')
-  [[ $(date -d "$exp" +%s) -le $(date +%s) ]] && \
-  sed -i "/^## $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
+  if [[ $(date -d "$exp" +%s) -le $(date +%s) ]]; then
+    sed -i "/^#1 $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
+    echo "Removed expired Trojan user: $user ($exp)"
+  fi
 done
 
 #----- Auto Remove Vless
-for u in $(grep '^###' /usr/local/etc/xray/config.json | awk '{print $2,$3}'); do
+for u in $(grep '^[[:space:]]*#2 ' /usr/local/etc/xray/config.json | awk '{print $2,$3}'); do
   user=$(echo $u | awk '{print $1}')
   exp=$(echo $u | awk '{print $2}')
-  [[ $(date -d "$exp" +%s) -le $(date +%s) ]] && \
-  sed -i "/^### $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
+  if [[ $(date -d "$exp" +%s) -le $(date +%s) ]]; then
+    sed -i "/^#1 $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
+    echo "Removed expired Trojan user: $user ($exp)"
+  fi
 done
 
 ##----- Auto Remove Vmess
-for u in $(grep '^####' /usr/local/etc/xray/config.json | awk '{print $2,$3}'); do
+for u in $(grep '^[[:space:]]*#3 ' /usr/local/etc/xray/config.json | awk '{print $2,$3}'); do
   user=$(echo $u | awk '{print $1}')
   exp=$(echo $u | awk '{print $2}')
-  [[ $(date -d "$exp" +%s) -le $(date +%s) ]] && \
-  sed -i "/^#### $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
+  if [[ $(date -d "$exp" +%s) -le $(date +%s) ]]; then
+    sed -i "/^#1 $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
+    echo "Removed expired Trojan user: $user ($exp)"
+  fi
 done
 
 ##----- Auto Remove Shadowsocks
-for u in $(grep '^#####' /usr/local/etc/xray/config.json | awk '{print $2,$3}'); do
+for u in $(grep '^[[:space:]]*#4 ' /usr/local/etc/xray/config.json | awk '{print $2,$3}'); do
   user=$(echo $u | awk '{print $1}')
   exp=$(echo $u | awk '{print $2}')
-  [[ $(date -d "$exp" +%s) -le $(date +%s) ]] && \
-  sed -i "/^##### $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
+  if [[ $(date -d "$exp" +%s) -le $(date +%s) ]]; then
+    sed -i "/^#1 $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
+    echo "Removed expired Trojan user: $user ($exp)"
+  fi
 done
-systemctl restart xray-trojan >/dev/null 2>&1
+systemctl restart xray >/dev/null 2>&1
