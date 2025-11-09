@@ -29,7 +29,7 @@ apt install -y \
   apt-transport-https build-essential dirmngr \
   libxml-parser-perl neofetch git lsof iftop \
   libsqlite3-dev libz-dev gcc g++ libreadline-dev \
-  zlib1g-dev libssl-dev dos2unix
+  zlib1g-dev libssl-dev dos2unix cron
 
 # Install Ruby gem (colorized text)
 gem install lolcat
