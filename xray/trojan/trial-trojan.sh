@@ -20,10 +20,8 @@ user=trial`</dev/urandom tr -dc a-z0-9 | head -c5`
 uuid=$(cat /proc/sys/kernel/random/uuid)
 expired=1
 exp=`date -d "$expired days" +"%Y-%m-%d"`
-sed -i '/#trojanws$/a\## '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
-sed -i '/#trojangrpc$/a\## '"$user $exp"'\
-},{"password": "'""$uuid""'","email": "'""$user""'"' /usr/local/etc/xray/config.json
+sed -i '/#trojanws$/a\  #1 '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
+sed -i '/#trojangrpc$/a\  #1 '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
 trojanlink="trojan://${uuid}@${domain}:${tls}?path=trojan-ws&security=tls&type=ws&#${user}"
 trojanlink1="trojan://${uuid}@${domain}:${ntls}?path=trojan-ws&security=none&type=ws#${user}"
 trojanlink2="trojan://${uuid}@${domain}:${tls}?serviceName=trojan-grpc&security=tls&type=grpc#${user}"
