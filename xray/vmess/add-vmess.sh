@@ -37,8 +37,8 @@ done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " expired
 exp=`date -d "$expired days" +"%Y-%m-%d"`
-sed -i '/#vmessws$/a\  #### '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
-sed -i '/#vmessgrpc$/a\  #### '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
+sed -i '/#vmessws$/a\  #3 '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
+sed -i '/#vmessgrpc$/a\  #3 '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
 wstls=`cat<<EOF
       {
       "v": "2",
