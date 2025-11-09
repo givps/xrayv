@@ -612,6 +612,7 @@ wget -O del-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/tr
 wget -O cek-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/cek-trojan.sh" && chmod +x cek-trojan
 wget -O m-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/m-trojan.sh" && chmod +x m-trojan
 wget -O xpxray "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/xpxray.sh" && chmod +x xpxray
+wget -O xray-log "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/xray-log.sh" && chmod +x xray-log
 cd
 
 cat > /etc/cron.d/xpxray_otm <<EOF
