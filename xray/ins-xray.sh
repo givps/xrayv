@@ -243,19 +243,39 @@ cat > /usr/local/etc/xray/config.json <<EOF
   "outbounds": [
     {
       "protocol": "freedom",
-      "tag": "direct"
+      "settings": {}
+    },
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "api"
     },
     {
       "protocol": "blackhole",
+      "settings": {},
       "tag": "blocked"
     }
   ],
   "routing": {
-    "domainStrategy": "AsIs",
     "rules": [
       {
         "type": "field",
-        "ip": ["geoip:private"],
+        "ip": [
+          "0.0.0.0/8",
+          "10.0.0.0/8",
+          "100.64.0.0/10",
+          "169.254.0.0/16",
+          "172.16.0.0/12",
+          "192.0.0.0/24",
+          "192.0.2.0/24",
+          "192.168.0.0/16",
+          "198.18.0.0/15",
+          "198.51.100.0/24",
+          "203.0.113.0/24",
+          "::1/128",
+          "fc00::/7",
+          "fe80::/10"
+        ],
         "outboundTag": "blocked"
       },
       {
@@ -270,16 +290,18 @@ cat > /usr/local/etc/xray/config.json <<EOF
       }
     ]
   },
-  "api": {
-    "tag": "api",
-    "services": ["StatsService"]
-  },
   "stats": {},
+  "api": {
+    "services": [
+      "StatsService"
+    ],
+    "tag": "api"
+  },
   "policy": {
     "levels": {
       "0": {
-        "statsUserUplink": true,
-        "statsUserDownlink": true
+        "statsUserDownlink": true,
+        "statsUserUplink": true
       }
     },
     "system": {
@@ -366,26 +388,6 @@ server {
 
     location /trojan-ws {
         proxy_pass http://127.0.0.1:10003;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_read_timeout 86400;
-        proxy_send_timeout 86400;
-        proxy_buffering off;
-        proxy_request_buffering off;
-        proxy_cache_bypass $http_upgrade;
-        proxy_intercept_errors off;
-        keepalive_timeout 120s;
-        tcp_nodelay on;
-        tcp_nopush on;
-    }
-
-    location /ss-ws {
-        proxy_pass http://127.0.0.1:10004;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
@@ -532,18 +534,6 @@ server {
 
     location /trojan-grpc {
         grpc_pass grpc://127.0.0.1:10007;
-        client_max_body_size 0;
-        grpc_set_header X-Real-IP $remote_addr;
-        grpc_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        grpc_set_header Host $host;
-        grpc_read_timeout 86400s;
-        grpc_send_timeout 86400s;
-        keepalive_timeout 120s;
-        proxy_buffering off;
-    }
-
-    location /ss-grpc {
-        grpc_pass grpc://127.0.0.1:10008;
         client_max_body_size 0;
         grpc_set_header X-Real-IP $remote_addr;
         grpc_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
