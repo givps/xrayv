@@ -31,14 +31,4 @@ for u in $(grep '^[[:space:]]*#3 ' /usr/local/etc/xray/config.json | awk '{print
     echo "Removed expired Trojan user: $user ($exp)"
   fi
 done
-
-##----- Auto Remove Shadowsocks
-for u in $(grep '^[[:space:]]*#4 ' /usr/local/etc/xray/config.json | awk '{print $2,$3}'); do
-  user=$(echo $u | awk '{print $1}')
-  exp=$(echo $u | awk '{print $2}')
-  if [[ $(date -d "$exp" +%s) -le $(date +%s) ]]; then
-    sed -i "/^#1 $user $exp/,/^},{/d" /usr/local/etc/xray/config.json
-    echo "Removed expired Trojan user: $user ($exp)"
-  fi
-done
 systemctl restart xray >/dev/null 2>&1
