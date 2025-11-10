@@ -52,7 +52,7 @@ echo -e "${red}=========================================${nc}"
 echo -e "${green}     CUSTOM SETUP DOMAIN VPS     ${nc}"
 echo -e "${red}=========================================${nc}"
 echo -e "${white}1${nc} Use Domain From Script"
-echo -e "${white}2${nc} Use Your Own Domain"
+echo -e "${white}2${nc} Use Own Your Domain"
 echo -e "${red}=========================================${nc}"
 read -rp "Choose Your Domain Installation 1/2 : " dom 
 
