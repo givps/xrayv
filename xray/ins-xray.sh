@@ -193,7 +193,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
     {
       "tag": "vless-grpc",
       "listen": "127.0.0.1",
-      "port": 10005,
+      "port": 10011,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -210,7 +210,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
     {
       "tag": "vmess-grpc",
       "listen": "127.0.0.1",
-      "port": 10006,
+      "port": 10012,
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -226,7 +226,7 @@ cat > /usr/local/etc/xray/config.json <<EOF
     {
       "tag": "trojan-grpc",
       "listen": "127.0.0.1",
-      "port": 10007,
+      "port": 10013,
       "protocol": "trojan",
       "settings": {
         "clients": [
@@ -488,28 +488,8 @@ server {
         tcp_nopush on;
     }
 
-    location /ss-ws {
-        proxy_pass http://127.0.0.1:10004;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection "upgrade";
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_read_timeout 86400;
-        proxy_send_timeout 86400;
-        proxy_buffering off;
-        proxy_request_buffering off;
-        proxy_cache_bypass $http_upgrade;
-        proxy_intercept_errors off;
-        keepalive_timeout 120s;
-        tcp_nodelay on;
-        tcp_nopush on;
-    }
-
     location /vless-grpc {
-        grpc_pass grpc://127.0.0.1:10005;
+        grpc_pass grpc://127.0.0.1:10011;
         client_max_body_size 0;
         grpc_set_header X-Real-IP $remote_addr;
         grpc_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -521,7 +501,7 @@ server {
     }
 
     location /vmess-grpc {
-        grpc_pass grpc://127.0.0.1:10006;
+        grpc_pass grpc://127.0.0.1:10012;
         client_max_body_size 0;
         grpc_set_header X-Real-IP $remote_addr;
         grpc_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -533,7 +513,7 @@ server {
     }
 
     location /trojan-grpc {
-        grpc_pass grpc://127.0.0.1:10007;
+        grpc_pass grpc://127.0.0.1:10013;
         client_max_body_size 0;
         grpc_set_header X-Real-IP $remote_addr;
         grpc_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
