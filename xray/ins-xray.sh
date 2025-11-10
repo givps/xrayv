@@ -42,7 +42,7 @@ touch /var/log/xray/{access,error}.log
 id xray &>/dev/null || useradd -r -s /usr/sbin/nologin xray
 # xray official
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u xray
-xray version
+# xray version
 # Set ownership
 chmod +x /usr/local/bin/xray
 chown -R root:root /usr/local/bin/xray
