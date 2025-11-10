@@ -74,13 +74,12 @@ echo -e "${BYellow}━━━━━━━━━━━━━━━━━━━━�
 echo -e "${CYAN} 1 ${NC}: Menu Vmess"
 echo -e "${CYAN} 2 ${NC}: Menu Vless"
 echo -e "${CYAN} 3 ${NC}: Menu Trojan"
-echo -e "${CYAN} 4 ${NC}: Menu Shadowsocks"
-echo -e "${CYAN} 5 ${nc}: Xray Log"
-echo -e "${CYAN} 6 ${NC}: Menu Setting"
-echo -e "${CYAN} 7 ${NC}: Status Service"
-echo -e "${CYAN} 8 ${NC}: Clear RAM Cache"
-echo -e "${CYAN} 9 ${NC}: Renew SSL"
-echo -e "${CYAN} 10 ${NC}: Reboot VPS"
+echo -e "${CYAN} 4 ${nc}: Xray Log"
+echo -e "${CYAN} 5 ${NC}: Menu Setting"
+echo -e "${CYAN} 6 ${NC}: Status Service"
+echo -e "${CYAN} 7 ${NC}: Clear RAM Cache"
+echo -e "${CYAN} 8 ${NC}: Renew SSL"
+echo -e "${CYAN} 9 ${NC}: Reboot VPS"
 echo -e "${CYAN} x ${NC}: Exit Script"
 echo -e "${BYellow}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${BGreen} Client Name ${NC}: $Name"
@@ -98,13 +97,12 @@ case $opt in
     1) clear ; m-vmess ;;
     2) clear ; m-vless ;;
     3) clear ; m-trojan ;;
-    4) clear ; m-ssws ;;
-    5) clear ; xray-log ;;
-    6) clear ; m-system ;;
-    7) clear ; running ;;
-    8) clear ; clearcache ;;
-    9) clear ; crt ;;
-    10) clear ; /sbin/reboot ;;
+    4) clear ; xray-log ;;
+    5) clear ; m-system ;;
+    6) clear ; running ;;
+    7) clear ; clearcache ;;
+    8) clear ; crt ;;
+    9) clear ; /sbin/reboot ;;
     x) exit ;;
     *) echo "You pressed it wrong" ; sleep 1 ; menu ;;
 esac
