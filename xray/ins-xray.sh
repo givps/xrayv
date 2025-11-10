@@ -606,12 +606,12 @@ wget -O del-vless "https://raw.githubusercontent.com/givps/xrayv/master/xray/vle
 wget -O cek-vless "https://raw.githubusercontent.com/givps/xrayv/master/xray/vless/cek-vless.sh" && chmod +x cek-vless
 wget -O m-vless "https://raw.githubusercontent.com/givps/xrayv/master/xray/vless/m-vless.sh" && chmod +x m-vless
 
-wget -O add-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/add-ssws.sh" && chmod +x add-ssws
-wget -O trial-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/trial-ssws.sh" && chmod +x trial-ssws
-wget -O renew-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/renew-ssws.sh" && chmod +x renew-ssws
-wget -O del-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/del-ssws.sh" && chmod +x del-ssws
-wget -O cek-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/cek-ssws.sh" && chmod +x cek-ssws
-wget -O m-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/m-ssws.sh" && chmod +x m-ssws
+#wget -O add-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/add-ssws.sh" && chmod +x add-ssws
+#wget -O trial-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/trial-ssws.sh" && chmod +x trial-ssws
+#wget -O renew-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/renew-ssws.sh" && chmod +x renew-ssws
+#wget -O del-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/del-ssws.sh" && chmod +x del-ssws
+#wget -O cek-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/cek-ssws.sh" && chmod +x cek-ssws
+#wget -O m-ssws "https://raw.githubusercontent.com/givps/xrayv/master/xray/ssws/m-ssws.sh" && chmod +x m-ssws
 
 wget -O add-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/add-trojan.sh" && chmod +x add-trojan
 wget -O renew-trojan "https://raw.githubusercontent.com/givps/xrayv/master/xray/trojan/renew-trojan.sh" && chmod +x renew-trojan
