@@ -40,14 +40,32 @@ rm -f /usr/local/bin/xray
 mkdir -p /usr/local/bin /usr/local/etc/xray /var/log/xray
 touch /var/log/xray/{access,error}.log
 id xray &>/dev/null || useradd -r -s /usr/sbin/nologin xray
-# xray official
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u xray
-xray version
-# Set ownership
-chmod +x /usr/local/bin/xray
+##########################################################################
+# Xray official install v1.6.5
+VER=v1.6.5
+ARCH=$(uname -m)
+case $ARCH in
+  x86_64) F=Xray-linux-64.zip ;;
+  i*86) F=Xray-linux-32.zip ;;
+  aarch64) F=Xray-linux-arm64-v8a.zip ;;
+  armv7l) F=Xray-linux-arm32-v7a.zip ;;
+  *) echo "❌ Unsupported arch: $ARCH"; exit 1 ;;
+esac
+
+curl -L -o x.zip https://github.com/XTLS/Xray-core/releases/download/$VER/$F
+unzip -qo x.zip xray && install -m 755 xray /usr/local/bin/xray
 chown -R root:root /usr/local/bin/xray
-chown -R xray:xray /usr/local/etc/xray
-chown -R xray:xray /var/log/xray
+chown -R xray:xray /usr/local/etc/xray /var/log/xray
+rm -rf x.zip xray && xray version
+##########################################################################
+# xray official
+#bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u xray
+#xray version
+# Set ownership
+#chmod +x /usr/local/bin/xray
+#chown -R root:root /usr/local/bin/xray
+#chown -R xray:xray /usr/local/etc/xray
+#chown -R xray:xray /var/log/xray
 
 # nginx stop
 systemctl stop nginx
