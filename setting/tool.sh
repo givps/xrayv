@@ -153,7 +153,7 @@ chown root:root /var/log/auth.log /var/log/fail2ban.log
 chmod 600 /var/log/auth.log /var/log/fail2ban.log
 cat > /etc/fail2ban/jail.local << 'EOF'
 [DEFAULT]
-bantime = 2592000
+bantime  = 2592000
 findtime = 600
 maxretry = 1
 banaction = iptables-multiport
