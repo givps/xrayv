@@ -13,6 +13,7 @@ echo -e " [\e[36m3\e[0m] Set Auto Reboot"
 echo -e " [\e[36m4\e[0m] Restart All Service"
 echo -e " [\e[36m5\e[0m] Cek Bandwith"
 echo -e " [\e[36m6\e[0m] DNS CHANGER"
+echo -e " [\e[36m7\e[0m] Log Auth-Tail"
 echo -e ""
 echo -e " [\e[31m0\e[0m] \e[31mBack To Menu\033[0m"
 echo -e   ""
@@ -29,6 +30,7 @@ case $opt in
 4) clear ; restart ; exit ;;
 5) clear ; bw ; exit ;;
 6) clear ; m-dns ; exit ;;
+7) clear ; auth-tail ; exit ;;
 0) clear ; menu ; exit ;;
 x) exit ;;
 *) echo "You pressed it wrong" ; sleep 1 ; m-system ;;
