@@ -19,8 +19,8 @@ user=trial`</dev/urandom tr -dc a-z0-9 | head -c5`
 uuid=$(cat /proc/sys/kernel/random/uuid)
 epired=1
 exp=`date -d "$epired days" +"%Y-%m-%d"`
-sed -i '/#vmessws$/a\  #3 '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
-sed -i '/#vmessgrpc$/a\  #3 '"$user $exp"'\n  ,{"password": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
+sed -i '/#vmessws$/a\  #3 '"$user $exp"'\n  ,{"id": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
+sed -i '/#vmessgrpc$/a\  #3 '"$user $exp"'\n  ,{"id": "'"$uuid"'", "email": "'"$user ($exp)"'"}' "/usr/local/etc/xray/config.json"
 wstls=`cat<<EOF
       {
       "v": "2",
