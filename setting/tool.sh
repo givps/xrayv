@@ -147,7 +147,10 @@ systemctl enable sshd
 
 # install fail2ban
 apt -y install fail2ban
-
+touch /var/log/auth.log
+touch /var/log/fail2ban.log
+chown root:root /var/log/auth.log /var/log/fail2ban.log
+chmod 600 /var/log/auth.log /var/log/fail2ban.log
 cat > /etc/fail2ban/jail.local << 'EOF'
 [DEFAULT]
 bantime = 3600
@@ -160,7 +163,7 @@ backend = auto
 enabled  = true
 port     = 22,2222
 filter   = sshd
-backend = systemd
+backend = /var/log/auth.log
 maxretry = 3
 findtime = 600
 bantime  = 3600
@@ -169,7 +172,7 @@ bantime  = 3600
 enabled  = true
 port = 22,2222
 filter = sshd
-backend = systemd
+backend = /var/log/auth.log
 maxretry = 5
 findtime = 300
 bantime = 604800
