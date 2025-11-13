@@ -109,8 +109,9 @@ rm -f /etc/nginx/conf.d/default.conf
 rm -f /etc/nginx/conf.d/vps.conf
 
 # Download custom configs
+mkdir -p /var/log/nginx /run/nginx
 wget -q -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/givps/xrayv/master/setting/nginx.conf"
-
+chown -R www-data:www-data /var/log/nginx /run/nginx
 # Add systemd override (fix for early startup)
 mkdir -p /etc/systemd/system/nginx.service.d
 printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.service.d/override.conf
