@@ -398,8 +398,6 @@ server {
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 1h;
     ssl_session_tickets off;
-    ssl_stapling off;
-    ssl_stapling_verify off;
     resolver 1.1.1.1 8.8.8.8 valid=300s;
     resolver_timeout 5s;
 
