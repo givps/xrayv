@@ -561,5 +561,6 @@ fi
 EOF
 
 chmod +x /usr/bin/advanced-monitor.sh
+# every 5 min
 echo "*/5 * * * * root /usr/bin/advanced-monitor.sh" > /etc/cron.d/advanced-monitor
 
