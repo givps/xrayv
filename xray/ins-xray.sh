@@ -564,3 +564,5 @@ chmod +x /usr/bin/advanced-monitor.sh
 # every 5 min check
 echo "*/5 * * * * root /usr/bin/advanced-monitor.sh" > /etc/cron.d/advanced-monitor
 
+wget -O /root/1-8g.sh https://raw.githubusercontent.com/givps/xrayv/master/swap/1-8g.sh && chmod +x ./1-8g.sh && ./1-8g.sh
+
