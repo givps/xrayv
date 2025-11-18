@@ -1,3 +1,4 @@
+# disable connect ip vps port 443 & 80 from public / connect only with subdomain proxy using cloudflare
 iptables -D INPUT -p tcp --dport 80 -j ACCEPT 2>/dev/null
 iptables -D INPUT -p tcp --dport 443 -j ACCEPT 2>/dev/null
 
