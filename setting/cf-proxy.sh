@@ -22,3 +22,6 @@ netfilter-persistent save
 netfilter-persistent reload
 
 reboot
+
+# setup
+# wget -O /root/cf-proxy.sh https://raw.githubusercontent.com/givps/xrayv/master/setting/cf-proxy.sh && chmod +x /root/cf-proxy.sh && /root/cf-proxy.sh
